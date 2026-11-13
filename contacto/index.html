@@ -84,22 +84,29 @@
           <form class="form" name="contacto" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contacto">
             <p class="oculto"><label>No llenes este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-            <div class="campo">
-              <label for="nombre">Tu nombre *</label>
-              <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            <div class="form-cabeza">
+              <h3>Déjanos tus datos</h3>
+              <p>Te escribimos pronto para agendar tu diagnóstico.</p>
             </div>
-            <div class="campo">
-              <label for="negocio">Nombre de tu negocio</label>
-              <input id="negocio" name="negocio" type="text" autocomplete="organization">
+            <div class="fila">
+              <div class="campo">
+                <label for="nombre">Tu nombre *</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+              </div>
+              <div class="campo">
+                <label for="negocio">Nombre de tu negocio</label>
+                <input id="negocio" name="negocio" type="text" autocomplete="organization">
+              </div>
             </div>
-            <div class="campo">
-              <label for="telefono">WhatsApp o teléfono *</label>
-              <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
-            </div>
-            <div class="campo">
-              <label for="correo">Correo</label>
-              <input id="correo" name="correo" type="email" autocomplete="email">
+            <div class="fila">
+              <div class="campo">
+                <label for="telefono">WhatsApp o teléfono *</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+              </div>
+              <div class="campo">
+                <label for="correo">Correo</label>
+                <input id="correo" name="correo" type="email" autocomplete="email">
+              </div>
             </div>
             <div class="campo">
               <label for="interes">¿Qué te interesa?</label>
@@ -124,7 +131,7 @@
               <input type="checkbox" name="acepto-privacidad" value="Sí" required>
               <span>Acepto la <a href="/privacidad/" target="_blank">política de privacidad</a> y autorizo el uso de mis datos para responder mi solicitud. *</span>
             </label>
-            <div><button class="btn" type="submit">Enviar mensaje</button></div>
+            <button class="btn grande" type="submit">Enviar mis datos</button>
           </form>
 
           <aside class="canal reveal">

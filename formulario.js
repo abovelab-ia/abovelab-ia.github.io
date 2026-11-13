@@ -8,8 +8,8 @@
   var SUPABASE_URL = 'https://vrjcprzrejvyyhvljnsp.supabase.co';
   var SUPABASE_KEY = 'sb_publishable_1d6FxNlpU3nlGU7BFhB3nA_JkTW_PfT';
 
-  var form = document.querySelector('form[name="contacto"]');
-  if (!form || !window.fetch) return;
+  var forms = document.querySelectorAll('form[name="contacto"]');
+  if (!forms.length || !window.fetch) return;
 
   function guardarEnSupabase(d){
     var limpio = function(v){ v = (v || '').trim(); return v === '' ? null : v; };
@@ -40,7 +40,7 @@
     });
   }
 
-  form.addEventListener('submit', function(e){
+  forms.forEach(function(form){ form.addEventListener('submit', function(e){
     e.preventDefault();
     var boton = form.querySelector('button[type="submit"]');
     var datos = new FormData(form);
@@ -59,5 +59,5 @@
       // Si algo falla, se envía de la forma tradicional
       form.submit();
     });
-  });
+  }); });
 })();

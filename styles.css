@@ -214,24 +214,31 @@ h2 em,h1 em{font-style:normal;color:var(--fucsia)}
 /* Llamado final */
 .cierre{position:relative;overflow:hidden;background:var(--rosa);color:var(--vino)}
 .cierre .wrap{position:relative;padding-block:72px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.cierre .cierre-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+.cierre-texto{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
 .cierre .blob.uno{background:var(--rojo);width:150px;top:-60px;right:-60px}
 .cierre .blob.dos{background:var(--crema);top:auto;bottom:-6%;left:52%}
 .cierre h2{font-size:clamp(2rem,9vw,4rem);line-height:1.02;color:var(--rojo);max-width:14ch}
-.cierre p{font-size:clamp(1.05rem,4vw,1.3rem);font-weight:500;max-width:32ch}
+.cierre-texto p{font-size:clamp(1.05rem,4vw,1.3rem);font-weight:500;max-width:32ch}
 .palabra{display:inline-block;font-family:var(--f-mono);font-weight:500;letter-spacing:.12em;background:var(--rojo);color:var(--crema);padding:2px 10px;border-radius:8px}
 
 /* ===== Formulario ===== */
-.form{display:grid;gap:14px;background:var(--blanco);border-radius:22px;padding:22px 20px}
+.form{position:relative;display:grid;gap:18px;background:var(--blanco);color:var(--tinta);border-radius:24px;padding:26px 20px;box-shadow:0 24px 50px -28px rgba(142,0,20,.45);width:100%}
+.form-cabeza{display:grid;gap:4px}
+.form-cabeza h3{font-family:var(--f-display);font-weight:800;font-size:clamp(1.3rem,5vw,1.7rem);line-height:1.15;color:var(--rojo)}
+.form-cabeza p{font-size:1rem;color:var(--tinta-suave)}
+.fila{display:grid;grid-template-columns:1fr;gap:18px}
 .campo{display:grid;gap:6px}
-.campo label{font-weight:600;font-size:.95rem}
+.campo label{font-weight:600;font-size:1.02rem}
 .campo .ayuda{font-size:.85rem;color:var(--tinta-suave)}
 .campo input,.campo select,.campo textarea{
   width:100%;font:inherit;font-size:1rem;color:var(--tinta);
-  background:var(--crema);border:1.5px solid var(--rosa-luz);border-radius:12px;padding:12px 14px;
+  background:var(--crema);border:1.5px solid var(--rosa-luz);border-radius:14px;padding:15px 16px;min-height:54px;font-size:1.06rem;
 }
 .campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--rojo);outline:none;box-shadow:0 0 0 3px var(--rosa-luz)}
-.campo textarea{min-height:120px;resize:vertical}
-.acepto{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:.92rem}
+.campo textarea{min-height:140px;resize:vertical}
+.acepto{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:.95rem}
+.btn.grande{width:100%;padding:18px 24px;font-size:1.12rem}
 .acepto input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--rojo)}
 .oculto{position:absolute!important;left:-9999px!important}
 .contacto-grid{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
@@ -296,9 +303,11 @@ h2 em,h1 em{font-style:normal;color:var(--fucsia)}
   .page-hero .blob.uno{width:min(40vw,440px);top:-45%;right:-8%}
   .cierre .blob.uno{width:min(42vw,480px);top:-30%;right:-12%}
   .page-hero .wrap > *{max-width:min(70%,720px)}
-  .cierre .wrap > *{max-width:min(58%,620px)}
+  .cierre .cierre-grid{grid-template-columns:5fr 6fr;gap:48px;align-items:center}
+  .form{padding:36px 34px}
+  .fila{grid-template-columns:1fr 1fr}
   .cierre h2{font-size:clamp(2rem,4.8vw,3.8rem)}
-  .contacto-grid{grid-template-columns:3fr 2fr;gap:24px}
+  .contacto-grid{grid-template-columns:2fr 1fr;gap:24px}
   .site-footer .wrap{grid-template-columns:2fr 1fr 1fr}
   .legal{grid-column:1/-1}
 }
