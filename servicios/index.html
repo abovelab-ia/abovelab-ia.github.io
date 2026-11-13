@@ -62,7 +62,7 @@
         <a href="/caso-inizitech/">Caso</a>
         <a href="/#preguntas">Preguntas</a>
         <a href="/contacto/">Contacto</a>
-        <a class="btn chico" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
+        <a class="btn chico" href="#formulario">Agenda tu diagnóstico</a>
       </nav>
     </div>
   </header>
@@ -75,6 +75,9 @@
         <span class="eyebrow">Servicios</span>
         <h1>Todo lo que necesitas para que tu negocio <em>dé el salto.</em></h1>
         <p class="lede">Estrategia, sistemas, inteligencia artificial y presencia digital. Empezamos por entender tu negocio y trabajamos de la mano de tu equipo.</p>
+        <div class="botones on-rojo">
+          <a class="btn claro" href="#formulario">Déjanos tus datos ↓</a>
+        </div>
       </div>
     </section>
 
@@ -169,7 +172,7 @@
     </section>
 
     <!-- Llamado final con formulario -->
-    <section class="cierre" id="formulario" aria-labelledby="cierre-titulo">
+    <section class="cierre" aria-labelledby="cierre-titulo">
       <div class="blob uno" aria-hidden="true"></div>
       <div class="blob dos" aria-hidden="true"></div>
       <div class="wrap cierre-grid">
@@ -181,7 +184,7 @@
             <a class="btn" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Escríbenos por WhatsApp</a>
           </div>
         </div>
-        <form class="form" name="contacto" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="form" id="formulario" name="contacto" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contacto">
             <p class="oculto"><label>No llenes este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <div class="form-cabeza">

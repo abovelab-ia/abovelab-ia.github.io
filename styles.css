@@ -103,6 +103,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .enlace{font-weight:600;color:var(--rojo);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
 .enlace:hover{text-decoration:underline}
 .on-rojo .enlace{color:var(--crema)}
+.on-rojo-enlace{color:var(--crema)}
 
 /* ===== Secciones ===== */
 .seccion{padding-block:64px}
