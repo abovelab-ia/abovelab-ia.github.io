@@ -4,570 +4,309 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Above Lab · Agencia de inteligencia artificial para negocios</title>
-  <meta name="description" content="Above Lab: agencia de inteligencia artificial para negocios. Adopta IA, automatiza tus procesos y da el salto digital.">
+  <meta name="description" content="Above Lab: agencia de inteligencia artificial para negocios. Estrategia, sistemas a la medida y agentes de IA que apoyan a tu equipo. Empieza por un diagnóstico.">
   <meta name="theme-color" content="#C90018">
-  <link rel="canonical" href="https://abovelab-ia.github.io/">
+  <link rel="canonical" href="https://abovelab-ia.netlify.app/">
+  <script>
+    /* Si alguien entra por la dirección vieja de GitHub, lo llevamos a la principal (Netlify) */
+    if (location.hostname === 'abovelab-ia.github.io') { location.replace('https://abovelab-ia.netlify.app' + location.pathname + location.search + location.hash); }
+    document.documentElement.classList.add('js');
+  </script>
   <meta name="google-site-verification" content="z146KkN0kreWPmTnwpzb3f03izpQ8AASt-tqVc89RX8">
 
-  <!-- Vista previa al compartir el enlace (WhatsApp, Instagram, Facebook) -->
+  <!-- Vista previa al compartir el enlace -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Above Lab">
   <meta property="og:locale" content="es_CO">
-  <meta property="og:url" content="https://abovelab-ia.github.io/">
-  <meta property="og:title" content="Above Lab · Inteligencia artificial para tu negocio">
-  <meta property="og:description" content="Adopta IA, automatiza tus procesos y da el salto digital. Empieza por un diagnóstico.">
-  <meta property="og:image" content="https://abovelab-ia.github.io/og.png">
+  <meta property="og:url" content="https://abovelab-ia.netlify.app/">
+  <meta property="og:title" content="Above Lab · Agencia de inteligencia artificial para negocios">
+  <meta property="og:description" content="Above Lab: agencia de inteligencia artificial para negocios. Estrategia, sistemas a la medida y agentes de IA que apoyan a tu equipo. Empieza por un diagnóstico.">
+  <meta property="og:image" content="https://abovelab-ia.netlify.app/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Ícono de la pestaña -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <!-- Tipografías -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600&family=Unbounded:wght@600;800&display=swap">
-
-  <style>
-    /* ===== Colores y tipografías ===== */
-    :root{
-      color-scheme:light;
-      --rojo:#C90018;
-      --vino:#8E0014;
-      --rosa:#FF9FCD;
-      --rosa-claro:#FFE6F1;
-      --fucsia:#F0458F;
-      --crema:#FFF4F8;
-      --rosa-luz:#FFD6EA;
-      --tinta:#2B0A12;
-      --tinta-suave:#6B3A47;
-      --blanco:#FFFFFF;
-      --f-display:'Unbounded','Arial Black','Segoe UI',system-ui,sans-serif;
-      --f-body:'Outfit','Segoe UI',system-ui,sans-serif;
-      --f-mono:'DM Mono','SFMono-Regular',Consolas,monospace;
-      --gut-l:max(20px, env(safe-area-inset-left, 0px));
-      --gut-r:max(20px, env(safe-area-inset-right, 0px));
-    }
-
-    /* ===== Base ===== */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--crema);
-      color:var(--tinta);
-      font-family:var(--f-body);
-      font-size:16px;
-      line-height:1.5;
-      overflow:hidden;
-      -webkit-tap-highlight-color:transparent;
-    }
-    h1,h2,h3,p{margin:0}
-
-    .stage{
-      height:100%;display:flex;flex-direction:column;background:var(--crema);
-      padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
-    }
-
-    /* ===== Barra superior ===== */
-    .topbar{
-      flex:none;display:flex;align-items:center;justify-content:space-between;gap:14px;
-      padding-block:10px;padding-left:var(--gut-l);padding-right:var(--gut-r);
-    }
-    .brand{display:flex;align-items:center;gap:8px}
-    .brand svg{width:30px;height:30px;flex:none}
-    .brand span{font-family:var(--f-display);font-weight:800;font-size:.74rem;letter-spacing:.04em;color:var(--rojo)}
-    .progress{flex:1;max-width:180px;height:6px;border-radius:99px;background:var(--rosa-claro);overflow:hidden}
-    .progress i{display:block;height:100%;width:0;border-radius:99px;background:var(--rojo);transition:width .5s cubic-bezier(.65,0,.35,1)}
-    .wa-mini{
-      flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
-      background:var(--rojo);color:var(--crema);transition:background .2s;
-    }
-    .wa-mini svg{width:20px;height:20px}
-    .wa-mini:hover{background:var(--vino)}
-    .top-right{display:flex;align-items:center;gap:14px;flex:1;justify-content:flex-end}
-
-    /* ===== Presentación (diapositivas) ===== */
-    .deck-wrap{flex:1;min-height:0;position:relative;overflow:hidden}
-    .deck{display:flex;height:100%;transition:transform .6s cubic-bezier(.7,0,.25,1);will-change:transform}
-    .slide{
-      flex:none;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;
-      display:flex;flex-direction:column;position:relative;scrollbar-width:none;
-    }
-    .slide::-webkit-scrollbar{display:none}
-    .inner{
-      width:100%;max-width:1040px;margin:auto;
-      padding-block:20px 22px;padding-left:var(--gut-l);padding-right:var(--gut-r);
-      display:flex;flex-direction:column;gap:14px;
-    }
-
-    /* Fondos */
-    .g-claro{background:var(--rosa-claro);color:var(--tinta)}
-    .g-rosa{background:var(--rosa);color:var(--tinta)}
-    .g-rojo{background:var(--rojo);color:var(--crema)}
-
-    /* ===== Textos ===== */
-    .eyebrow{
-      font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-      display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
-      padding:5px 11px;border-radius:99px;background:var(--rojo);color:var(--crema);
-    }
-    .g-rojo .eyebrow{background:var(--rosa);color:var(--vino)}
-    h2{
-      font-family:var(--f-display);font-weight:800;
-      font-size:clamp(1.42rem,5.4vw,2.5rem);line-height:1.14;letter-spacing:-.01em;
-      text-wrap:balance;color:var(--rojo);
-    }
-    h2 em{font-style:normal;color:var(--fucsia)}
-    .g-rosa h2{color:var(--vino)}
-    .g-rosa h2 em{color:var(--rojo)}
-    .g-rojo h2{color:var(--crema)}
-    .g-rojo h2 em{color:var(--rosa)}
-    .mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
-
-    /* ===== Portada y cierre ===== */
-    .bookend{overflow:hidden;justify-content:flex-end}
-    .bookend.b-rojo{background:var(--rojo);color:var(--crema)}
-    .bookend.b-rosa{background:var(--rosa);color:var(--vino)}
-    .blob{
-      position:absolute;aspect-ratio:1;border-radius:58% 42% 38% 62% / 47% 55% 45% 53%;
-      animation:morf 14s ease-in-out infinite alternate;
-    }
-    .blob.uno{width:min(92vw,560px);top:-30%;right:-30%}
-    .blob.dos{width:min(26vw,150px);top:38%;left:-8%;animation-duration:10s;animation-direction:alternate-reverse}
-    .b-rojo .blob.uno{background:var(--rosa)}
-    .b-rojo .blob.dos{background:var(--vino)}
-    .b-rosa .blob.uno{background:var(--rojo)}
-    .b-rosa .blob.dos{background:var(--crema)}
-    .bookend .panel{
-      position:relative;width:100%;max-width:1040px;margin-inline:auto;
-      padding-block:40px 44px;padding-left:var(--gut-l);padding-right:var(--gut-r);
-      display:flex;flex-direction:column;gap:14px;align-items:flex-start;
-    }
-    .wordmark{
-      font-family:var(--f-display);font-weight:800;
-      font-size:clamp(3rem,17vw,7.5rem);line-height:.92;letter-spacing:-.03em;color:var(--crema);
-    }
-    .wordmark b{display:block;font-weight:800;color:var(--rosa)}
-    .tagline{font-size:clamp(1.05rem,4.2vw,1.4rem);font-weight:500;line-height:1.3;max-width:28ch}
-    .b-rojo .mono{color:var(--rosa-luz)}
-    .b-rosa .mono{color:var(--vino)}
-    .pista{display:inline-flex;align-items:center;gap:8px;margin-top:4px}
-    .pista i{font-style:normal;display:inline-block;animation:empuje 1.4s ease-in-out infinite}
-    .cierre-title{
-      font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,9.5vw,4.6rem);line-height:1.02;
-      letter-spacing:-.02em;color:var(--rojo);text-wrap:balance;
-    }
-    .palabra{
-      display:inline-block;font-family:var(--f-mono);font-weight:500;letter-spacing:.12em;
-      background:var(--rojo);color:var(--crema);padding:2px 10px;border-radius:8px;
-    }
-    .wa-btn{
-      display:inline-flex;align-items:center;gap:10px;margin-top:6px;
-      padding:14px 22px;border-radius:99px;background:var(--rojo);color:var(--crema);
-      font-family:var(--f-body);font-weight:600;font-size:1.05rem;text-decoration:none;
-      transition:background .2s, transform .2s;
-    }
-    .wa-btn svg{width:22px;height:22px;flex:none}
-    .wa-btn:hover{background:var(--vino)}
-    .wa-btn:active{transform:scale(.96)}
-
-    /* ===== El problema ===== */
-    .sintomas{display:grid;grid-template-columns:1fr;gap:10px}
-    .sintoma{
-      display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
-      padding:13px 14px;border-radius:16px;background:var(--blanco);
-    }
-    .sintoma .x{
-      width:30px;height:30px;border-radius:50%;background:var(--rojo);color:var(--crema);
-      display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:.8rem;
-    }
-    .sintoma h3{font-size:1rem;font-weight:600;line-height:1.25;color:var(--tinta)}
-    .sintoma p{font-size:.9rem;color:var(--tinta-suave);line-height:1.4}
-
-    /* ===== Tarjetas ===== */
-    .lab{display:grid;grid-template-columns:1fr;gap:10px}
-    .lab-item{border-radius:18px;padding:12px 15px;background:var(--blanco);color:var(--tinta);display:flex;flex-direction:column;gap:4px}
-    .lab-item .mono{color:var(--fucsia)}
-    .lab-item h3{font-family:var(--f-display);font-weight:600;font-size:1rem;line-height:1.25}
-    .lab-item p{font-size:.9rem;line-height:1.4}
-    .remate{font-size:1rem;font-weight:500;max-width:52ch;color:var(--crema)}
-
-    /* ===== Servicios ===== */
-    .grupos{display:grid;grid-template-columns:1fr;gap:12px}
-    .grupo{display:flex;flex-direction:column;gap:8px}
-    .grupo > .mono{color:var(--vino)}
-    .elemento{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
-    .sym{
-      width:54px;height:54px;border-radius:12px;display:grid;place-items:center;
-      font-family:var(--f-display);font-weight:800;font-size:1.15rem;
-      background:var(--rojo);color:var(--crema);
-    }
-    .g-rosa .grupo.creativo .sym{background:var(--crema);color:var(--rojo)}
-    .elemento h3{font-size:.98rem;font-weight:600;line-height:1.2}
-    .elemento p{font-size:.86rem;line-height:1.35;color:var(--tinta-suave)}
-    .g-rosa .elemento p{color:var(--tinta)}
-
-    /* ===== Pasos numerados ===== */
-    .pasos,.flujo{display:grid;grid-template-columns:1fr;gap:10px;counter-reset:paso}
-    .flujo{gap:8px}
-    .paso{
-      counter-increment:paso;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
-      padding:14px 16px;border-radius:18px;background:var(--crema);
-    }
-    .paso::before{
-      content:counter(paso);font-family:var(--f-display);font-weight:800;font-size:1.6rem;line-height:1;
-      color:var(--rojo);min-width:1.1em;
-    }
-    .paso h3{font-family:var(--f-display);font-weight:600;font-size:.98rem;line-height:1.25;color:var(--vino)}
-    .paso p{font-size:.9rem;line-height:1.4;color:var(--tinta)}
-    .flujo .paso,.pasos.blancos .paso{background:var(--blanco)}
-    .cierre-linea{font-size:1rem;font-weight:500;max-width:56ch}
-
-    /* ===== Caso ===== */
-    .ficha{
-      background:var(--blanco);border-radius:22px;padding:20px 18px;
-      display:flex;flex-direction:column;gap:14px;border:2px dashed var(--rosa);
-    }
-    .ficha p{font-size:.95rem;color:var(--tinta)}
-    .checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-    .checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.93rem;line-height:1.35;align-items:start}
-    .checks li::before{
-      content:"";width:22px;height:22px;border-radius:50%;background:var(--rojo);
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.4 3.4L16.2 8' fill='none' stroke='%23FFF4F8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    }
-
-    /* ===== Botones de abajo ===== */
-    .controls{
-      flex:none;display:flex;align-items:center;justify-content:space-between;
-      padding-block:10px;padding-left:var(--gut-l);padding-right:var(--gut-r);
-    }
-    .navbtn{
-      width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
-      background:var(--rojo);color:var(--crema);display:grid;place-items:center;
-      transition:transform .2s, background .2s, opacity .2s;
-    }
-    .navbtn svg{width:20px;height:20px}
-    .navbtn:hover{background:var(--vino)}
-    .navbtn:active{transform:scale(.92)}
-    .navbtn[disabled]{opacity:.25;cursor:default}
-    .counter{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;color:var(--vino);font-variant-numeric:tabular-nums}
-    a:focus-visible,.navbtn:focus-visible{outline:3px solid var(--fucsia);outline-offset:3px}
-
-    /* ===== Animaciones ===== */
-    @keyframes morf{to{border-radius:40% 60% 62% 38% / 58% 40% 60% 42%;transform:rotate(14deg) scale(1.05)}}
-    @keyframes subir{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @keyframes pop{0%{opacity:0;transform:scale(.4) rotate(-12deg)}70%{transform:scale(1.12) rotate(3deg)}100%{opacity:1;transform:none}}
-    @keyframes empuje{50%{transform:translateX(6px)}}
-
-    .slide.is-active .rise{animation:subir .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 80ms + 180ms)}
-    .slide.is-active .pop{animation:pop .5s cubic-bezier(.3,1.4,.5,1) both;animation-delay:calc(var(--i,0) * 70ms + 300ms)}
-
-    @media (prefers-reduced-motion: reduce){
-      *,*::before,*::after{animation:none !important}
-      .deck{transition:none}
-    }
-
-    /* ===== Pantallas grandes (computadora) ===== */
-    @media (min-width:820px){
-      html{font-size:112.5%}
-      .inner{gap:24px;padding-block:36px}
-      .sintomas,.lab{grid-template-columns:1fr 1fr}
-      .lab.tres{grid-template-columns:repeat(3,1fr)}
-      .flujo{grid-template-columns:repeat(4,1fr);gap:12px}
-      .flujo .paso{grid-template-columns:1fr}
-      .grupos{grid-template-columns:4fr 3fr;gap:36px}
-      .pasos{grid-template-columns:1fr 1fr}
-      .bookend{justify-content:center}
-      .blob.uno{width:min(46vw,600px);top:-16%;right:-12%}
-      .blob.dos{width:110px;top:auto;bottom:8%;left:58%}
-      .bookend .panel > *{max-width:min(54%,560px)}
-      .wordmark{font-size:clamp(3rem,9vw,7rem)}
-      .cierre-title{font-size:clamp(2rem,4.6vw,3.6rem)}
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="stage">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-  <!-- ===== Barra superior: logo, progreso y WhatsApp ===== -->
-  <header class="topbar">
-    <div class="brand">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <polygon points="25,38 15,4 46,34" fill="#C8102E"/>
-        <polygon points="75,38 85,4 54,34" fill="#C8102E"/>
-        <polygon points="28,31 24,13 38,31" fill="#E85D9C"/>
-        <polygon points="72,31 76,13 62,31" fill="#E85D9C"/>
-        <circle cx="50" cy="54" r="31" fill="#FF9FCD"/>
-        <ellipse cx="50" cy="62" rx="17" ry="13" fill="#FFF6F0"/>
-        <circle cx="41" cy="57" r="3.4" fill="#2A1015"/>
-        <circle cx="59" cy="57" r="3.4" fill="#2A1015"/>
-        <circle cx="50" cy="65" r="2.6" fill="#2A1015"/>
-        <path d="M 43 70 Q 50 76 57 70" stroke="#2A1015" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-      <span>ABOVE LAB</span>
-    </div>
-    <div class="top-right">
-      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
-      <a class="wa-mini" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
+  <!-- ===== Barra superior y menú ===== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Above Lab, ir al inicio">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="25,38 15,4 46,34" fill="#C8102E"/>
+          <polygon points="75,38 85,4 54,34" fill="#C8102E"/>
+          <polygon points="28,31 24,13 38,31" fill="#E85D9C"/>
+          <polygon points="72,31 76,13 62,31" fill="#E85D9C"/>
+          <circle cx="50" cy="54" r="31" fill="#FF9FCD"/>
+          <ellipse cx="50" cy="62" rx="17" ry="13" fill="#FFF6F0"/>
+          <circle cx="41" cy="57" r="3.4" fill="#2A1015"/>
+          <circle cx="59" cy="57" r="3.4" fill="#2A1015"/>
+          <circle cx="50" cy="65" r="2.6" fill="#2A1015"/>
+          <path d="M 43 70 Q 50 76 57 70" stroke="#2A1015" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span>ABOVE LAB</span>
       </a>
+      <button class="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+      <nav class="nav" id="menu" aria-label="Menú principal">
+        <a href="/" aria-current="page">Inicio</a>
+        <a href="/servicios/">Servicios</a>
+        <a href="/caso-inizitech/">Caso</a>
+        <a href="/#preguntas">Preguntas</a>
+        <a href="/contacto/">Contacto</a>
+        <a class="btn chico" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener">Agenda tu diagnóstico</a>
+      </nav>
     </div>
   </header>
 
-  <div class="deck-wrap">
-    <main class="deck" id="deck">
+  <main id="contenido">
 
-      <!-- 1. PORTADA -->
-      <section class="slide bookend b-rojo" aria-label="Portada">
-        <div class="blob uno" aria-hidden="true"></div>
-        <div class="blob dos" aria-hidden="true"></div>
-        <div class="panel">
-          <span class="mono rise" style="--i:0">Agencia de inteligencia artificial para negocios</span>
-          <h1 class="wordmark rise" style="--i:1">ABOVE <b>LAB</b></h1>
-          <p class="tagline rise" style="--i:2">Ayudamos a tu negocio a adoptar inteligencia artificial, automatizar sus procesos y dar el salto digital.</p>
-          <span class="mono pista rise" style="--i:3">Desliza para ver más <i aria-hidden="true">→</i></span>
+    <!-- ===== Portada ===== -->
+    <section class="hero">
+      <div class="blob uno" aria-hidden="true"></div>
+      <div class="blob dos" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="mono">Agencia de inteligencia artificial para negocios</span>
+        <h1 class="wordmark">ABOVE <b>LAB</b></h1>
+        <p class="tagline">Ayudamos a tu negocio a adoptar inteligencia artificial, organizar sus procesos y dar el salto digital, de la mano de tu equipo.</p>
+        <div class="botones on-rojo">
+          <a class="btn claro" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Agenda tu diagnóstico</a>
+          <a class="btn borde" href="/servicios/">Ver servicios</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 2. EL PROBLEMA -->
-      <section class="slide g-claro" aria-label="El problema">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">El problema</span>
-          <h2 class="rise" style="--i:1">Tu negocio vende. Pero tu equipo <em>no da abasto.</em></h2>
-          <div class="sintomas">
-            <div class="sintoma rise" style="--i:2"><span class="x" aria-hidden="true">×</span><div><h3>Clientes sin responder</h3><p>Tu equipo no alcanza a contestar a tiempo, y cada mensaje que espera es una venta que se va con otro.</p></div></div>
-            <div class="sintoma rise" style="--i:3"><span class="x" aria-hidden="true">×</span><div><h3>Información regada</h3><p>Pedidos, inventario y clientes entre cuadernos, notas y chats. Cada persona busca en un lugar distinto.</p></div></div>
-            <div class="sintoma rise" style="--i:4"><span class="x" aria-hidden="true">×</span><div><h3>Decisiones a ojo</h3><p>Sin números claros, el equipo no sabe qué priorizar ni qué se vende más.</p></div></div>
-            <div class="sintoma rise" style="--i:5"><span class="x" aria-hidden="true">×</span><div><h3>Un equipo apagando incendios</h3><p>El tiempo se va en tareas repetitivas y no queda para atender bien, crear ni hacer crecer el negocio.</p></div></div>
-          </div>
+    <!-- ===== El problema ===== -->
+    <section class="seccion g-claro" aria-labelledby="problema">
+      <div class="wrap">
+        <span class="eyebrow">El problema</span>
+        <h2 id="problema" class="reveal">Tu negocio vende. Pero tu equipo <em>no da abasto.</em></h2>
+        <div class="grid dos">
+          <div class="sintoma reveal"><span class="x" aria-hidden="true">×</span><div><h3>Clientes sin responder</h3><p>Tu equipo no alcanza a contestar a tiempo, y cada mensaje que espera es una venta que se va con otro.</p></div></div>
+          <div class="sintoma reveal"><span class="x" aria-hidden="true">×</span><div><h3>Información regada</h3><p>Pedidos, inventario y clientes entre cuadernos, notas y chats. Cada persona busca en un lugar distinto.</p></div></div>
+          <div class="sintoma reveal"><span class="x" aria-hidden="true">×</span><div><h3>Decisiones a ojo</h3><p>Sin números claros, el equipo no sabe qué priorizar ni qué se vende más.</p></div></div>
+          <div class="sintoma reveal"><span class="x" aria-hidden="true">×</span><div><h3>Un equipo apagando incendios</h3><p>El tiempo se va en tareas repetitivas y no queda para atender bien, crear ni hacer crecer el negocio.</p></div></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 3. QUÉ HACEMOS -->
-      <section class="slide g-rojo" aria-label="Qué hacemos">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Qué hacemos</span>
-          <h2 class="rise" style="--i:1">Diseñamos la estrategia de tu negocio y la ponemos a funcionar con <em>inteligencia artificial.</em></h2>
-          <div class="lab tres">
-            <div class="lab-item rise" style="--i:2"><span class="mono">Estrategia</span><h3>Un plan claro</h3><p>Definimos hacia dónde va tu negocio, cómo debe operar y quién hace qué.</p></div>
-            <div class="lab-item rise" style="--i:3"><span class="mono">Sistema</span><h3>Todo en un solo lugar</h3><p>Ventas, inventario y clientes en un sistema hecho a tu medida.</p></div>
-            <div class="lab-item rise" style="--i:4"><span class="mono">Inteligencia artificial</span><h3>Agentes que apoyan a tu equipo</h3><p>Se encargan de lo repetitivo para que tu equipo tenga más tiempo para atender, vender y crear.</p></div>
-          </div>
-          <p class="remate rise" style="--i:5">La IA no reemplaza a las personas: les quita lo repetitivo para que rindan más. El resultado es un negocio más ordenado y productivo.</p>
+    <!-- ===== Qué hacemos ===== -->
+    <section class="seccion g-rojo" aria-labelledby="que-hacemos">
+      <div class="wrap">
+        <span class="eyebrow">Qué hacemos</span>
+        <h2 id="que-hacemos" class="reveal">Diseñamos la estrategia de tu negocio y la ponemos a funcionar con <em>inteligencia artificial.</em></h2>
+        <div class="grid tres">
+          <div class="card reveal"><span class="mono">Estrategia</span><h3>Un plan claro</h3><p>Definimos hacia dónde va tu negocio, cómo debe operar y quién hace qué.</p></div>
+          <div class="card reveal"><span class="mono">Sistema</span><h3>Todo en un solo lugar</h3><p>Ventas, inventario y clientes en un sistema hecho a tu medida.</p></div>
+          <div class="card reveal"><span class="mono">Inteligencia artificial</span><h3>Agentes que apoyan a tu equipo</h3><p>Se encargan de lo repetitivo para que tu equipo tenga más tiempo para atender, vender y crear.</p></div>
         </div>
-      </section>
+        <p class="remate reveal">La IA no reemplaza a las personas: les quita lo repetitivo para que rindan más. El resultado es un negocio más ordenado y productivo.</p>
+      </div>
+    </section>
 
-      <!-- 4. SERVICIOS: ESTRATEGIA Y TECNOLOGÍA -->
-      <section class="slide g-claro" aria-label="Servicios de estrategia y tecnología">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Servicios</span>
-          <h2 class="rise" style="--i:1">Lo que montamos <em>en tu negocio.</em></h2>
-          <div class="grupo">
-            <span class="mono rise" style="--i:2">Estrategia y tecnología</span>
-            <div class="elemento rise" style="--i:3"><span class="sym pop" style="--i:3">Dx</span><div><h3>Diagnóstico y estrategia de transformación digital</h3><p>Cómo opera hoy tu negocio, hacia dónde debe ir y qué conviene montar primero.</p></div></div>
-            <div class="elemento rise" style="--i:4"><span class="sym pop" style="--i:4">Sg</span><div><h3>Sistema de gestión a la medida</h3><p>ERP ligero y CRM: ventas, inventario y clientes en un solo lugar.</p></div></div>
-            <div class="elemento rise" style="--i:5"><span class="sym pop" style="--i:5">Au</span><div><h3>Automatizaciones</h3><p>Pedidos, avisos, seguimientos y reportes sin tareas repetitivas, para que tu equipo se enfoque en lo importante.</p></div></div>
-            <div class="elemento rise" style="--i:6"><span class="sym pop" style="--i:6">Ia</span><div><h3>Agentes de IA para ventas y atención</h3><p>Ayudan a tu equipo a responder rápido, cotizar y registrar, conectados a tu sistema.</p></div></div>
-          </div>
+    <!-- ===== Servicios (resumen) ===== -->
+    <section class="seccion g-crema" aria-labelledby="servicios">
+      <div class="wrap">
+        <span class="eyebrow">Servicios</span>
+        <h2 id="servicios" class="reveal">Lo que montamos, lo que enseñamos y <em>lo que te hace visible.</em></h2>
+        <div class="grid dos">
+          <div class="servicio reveal"><span class="sym">Dx</span><div><h3>Diagnóstico y estrategia</h3><p>Cómo opera hoy tu negocio, hacia dónde debe ir y qué conviene montar primero.</p></div></div>
+          <div class="servicio reveal"><span class="sym">Sg</span><div><h3>Sistema de gestión a la medida</h3><p>ERP ligero y CRM: ventas, inventario y clientes en un solo lugar.</p></div></div>
+          <div class="servicio reveal"><span class="sym">Au</span><div><h3>Automatizaciones</h3><p>Menos tareas repetitivas para que tu equipo se enfoque en lo importante.</p></div></div>
+          <div class="servicio reveal"><span class="sym">Ia</span><div><h3>Agentes de IA para ventas y atención</h3><p>Ayudan a tu equipo a responder rápido, cotizar y registrar.</p></div></div>
+          <div class="servicio reveal"><span class="sym rosa">As</span><div><h3>Asesorías estratégicas</h3><p>Sesiones uno a uno para resolver un problema puntual de tu negocio.</p></div></div>
+          <div class="servicio reveal"><span class="sym rosa">Tl</span><div><h3>Talleres de IA para negocios</h3><p>Formación práctica para emprendedores y equipos.</p></div></div>
+          <div class="servicio reveal"><span class="sym rosa">Wb</span><div><h3>Páginas web y herramientas</h3><p>Tu página, tableros y formularios a la medida.</p></div></div>
+          <div class="servicio reveal"><span class="sym rosa">Ct</span><div><h3>Contenido y marca</h3><p>Estrategia de contenido, plan de marketing y video.</p></div></div>
         </div>
-      </section>
+        <a class="enlace" href="/servicios/">Ver todos los servicios en detalle →</a>
+      </div>
+    </section>
 
-      <!-- 5. SERVICIOS: CONOCIMIENTO Y PRESENCIA -->
-      <section class="slide g-rosa" aria-label="Servicios de conocimiento y presencia">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Servicios</span>
-          <h2 class="rise" style="--i:1">Lo que te enseñamos y <em>lo que te hace visible.</em></h2>
-          <div class="grupos">
-            <div class="grupo">
-              <span class="mono rise" style="--i:2">Conocimiento</span>
-              <div class="elemento rise" style="--i:3"><span class="sym pop" style="--i:3">As</span><div><h3>Asesorías estratégicas</h3><p>Sesiones uno a uno para resolver un problema puntual de tu negocio.</p></div></div>
-              <div class="elemento rise" style="--i:4"><span class="sym pop" style="--i:4">Tl</span><div><h3>Talleres de IA para negocios</h3><p>Formación práctica para emprendedores y equipos que quieren usar IA en su día a día.</p></div></div>
-            </div>
-            <div class="grupo creativo">
-              <span class="mono rise" style="--i:5">Presencia</span>
-              <div class="elemento rise" style="--i:6"><span class="sym pop" style="--i:6">Wb</span><div><h3>Páginas web y herramientas a la medida</h3><p>Tu página, tableros y formularios.</p></div></div>
-              <div class="elemento rise" style="--i:7"><span class="sym pop" style="--i:7">Ct</span><div><h3>Contenido y marca</h3><p>Estrategia de contenido, plan de marketing y video.</p></div></div>
-            </div>
-          </div>
+    <!-- ===== La IA con tu equipo ===== -->
+    <section class="seccion g-rosa" aria-labelledby="ia">
+      <div class="wrap">
+        <span class="eyebrow">Inteligencia artificial</span>
+        <h2 id="ia" class="reveal">La IA sirve cuando trabaja <em>junto a tu equipo.</em></h2>
+        <div class="pasos cuatro">
+          <div class="paso reveal"><div><h3>El cliente escribe</h3><p>Pregunta por un producto, un precio o un pedido.</p></div></div>
+          <div class="paso reveal"><div><h3>El agente resuelve lo frecuente</h3><p>Responde preguntas de precios, inventario y pedidos con información real de tu negocio.</p></div></div>
+          <div class="paso reveal"><div><h3>Tu equipo se encarga de lo importante</h3><p>Recibe las conversaciones que necesitan una persona: asesorar, resolver un caso especial y cerrar la venta.</p></div></div>
+          <div class="paso reveal"><div><h3>Todos ven los números</h3><p>La venta queda registrada y un tablero le muestra al equipo qué se vendió y qué necesita atención.</p></div></div>
         </div>
-      </section>
+        <p class="nota-final reveal">Por eso no instalamos un bot suelto: integramos la IA con tu sistema y con tu equipo, para que cada uno haga lo que mejor sabe hacer.</p>
+      </div>
+    </section>
 
-      <!-- 6. IA CONECTADA -->
-      <section class="slide g-rosa" aria-label="Cómo trabaja la inteligencia artificial">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Inteligencia artificial</span>
-          <h2 class="rise" style="--i:1">La IA sirve cuando trabaja <em>junto a tu equipo.</em></h2>
-          <div class="flujo">
-            <div class="paso rise" style="--i:2"><div><h3>El cliente escribe</h3><p>Pregunta por un producto, un precio o un pedido.</p></div></div>
-            <div class="paso rise" style="--i:3"><div><h3>El agente resuelve lo frecuente</h3><p>Responde preguntas de precios, inventario y pedidos con información real de tu negocio.</p></div></div>
-            <div class="paso rise" style="--i:4"><div><h3>Tu equipo se encarga de lo importante</h3><p>Recibe las conversaciones que necesitan una persona: asesorar, resolver un caso especial y cerrar la venta.</p></div></div>
-            <div class="paso rise" style="--i:5"><div><h3>Todos ven los números</h3><p>La venta queda registrada en tu sistema y un tablero le muestra al equipo qué se vendió y qué necesita atención.</p></div></div>
-          </div>
-          <p class="cierre-linea rise" style="--i:6">Por eso no instalamos un bot suelto: integramos la IA con tu sistema y con tu equipo, para que cada uno haga lo que mejor sabe hacer.</p>
+    <!-- ===== El método ===== -->
+    <section class="seccion g-claro" aria-labelledby="metodo">
+      <div class="wrap">
+        <span class="eyebrow">El método</span>
+        <h2 id="metodo" class="reveal">Cuatro pasos, <em>de la mano de tu equipo.</em></h2>
+        <div class="pasos dos">
+          <div class="paso reveal"><div><h3>Diagnóstico y estrategia</h3><p>Escuchamos a tu equipo, miramos cómo opera hoy tu negocio y definimos la estrategia para llevarlo a donde debe estar.</p></div></div>
+          <div class="paso reveal"><div><h3>Diseño</h3><p>Definimos con tu equipo los procesos, quién hace qué y el sistema donde va a vivir la información.</p></div></div>
+          <div class="paso reveal"><div><h3>Implementación</h3><p>Montamos el sistema, las automatizaciones y los agentes de IA, y capacitamos a tu equipo para usarlos.</p></div></div>
+          <div class="paso reveal"><div><h3>Visibilidad</h3><p>Página, contenido y marca para que el cambio se note y venda.</p></div></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 7. EL MÉTODO -->
-      <section class="slide g-claro" aria-label="El método">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">El método</span>
-          <h2 class="rise" style="--i:1">Cuatro pasos, <em>de la mano de tu equipo.</em></h2>
-          <div class="pasos blancos">
-            <div class="paso rise" style="--i:2"><div><h3>Diagnóstico y estrategia</h3><p>Escuchamos a tu equipo, miramos cómo opera hoy tu negocio y definimos la estrategia para llevarlo a donde debe estar.</p></div></div>
-            <div class="paso rise" style="--i:3"><div><h3>Diseño</h3><p>Definimos con tu equipo los procesos, quién hace qué y el sistema donde va a vivir la información.</p></div></div>
-            <div class="paso rise" style="--i:4"><div><h3>Implementación</h3><p>Montamos el sistema, las automatizaciones y los agentes de IA, y capacitamos a tu equipo para usarlos.</p></div></div>
-            <div class="paso rise" style="--i:5"><div><h3>Visibilidad</h3><p>Página, contenido y marca para que el cambio se note y venda.</p></div></div>
-          </div>
+    <!-- ===== Caso ===== -->
+    <section class="seccion g-rosa" aria-labelledby="caso">
+      <div class="wrap">
+        <span class="eyebrow">Caso</span>
+        <h2 id="caso" class="reveal">Lo aplicamos primero en nuestro propio negocio: <em>Inizitech.</em></h2>
+        <div class="ficha reveal">
+          <p>Inizitech es un negocio de accesorios tech con más de 3 años vendiendo por redes sociales. Fue el primero en pasar por el método de Above Lab.</p>
+          <ul class="checks">
+            <li>Diagnóstico de la operación: cómo funcionaba y cómo debía funcionar</li>
+            <li>Mapa de procesos y estructura organizada por procesos</li>
+            <li>Hoja central que funciona como ERP ligero</li>
+            <li>Agente de IA de ventas diseñado para WhatsApp e Instagram</li>
+          </ul>
+          <a class="enlace" href="/caso-inizitech/">Leer el caso completo →</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 8. CASO INIZITECH -->
-      <section class="slide g-rosa" aria-label="Caso Inizitech">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Caso</span>
-          <h2 class="rise" style="--i:1">Lo aplicamos primero en nuestro propio negocio: <em>Inizitech.</em></h2>
-          <div class="ficha rise" style="--i:2">
-            <p>Inizitech es un negocio de accesorios tech con más de 3 años vendiendo por redes sociales. Fue el primero en pasar por el método de Above Lab.</p>
-            <ul class="checks">
-              <li>Diagnóstico de la operación: cómo funcionaba y cómo debía funcionar</li>
-              <li>Mapa de procesos y estructura organizada por procesos</li>
-              <li>Hoja central que funciona como ERP ligero</li>
-              <li>Agente de IA de ventas diseñado para WhatsApp e Instagram</li>
-            </ul>
-          </div>
+    <!-- ===== Por qué Above Lab ===== -->
+    <section class="seccion g-rojo" aria-labelledby="por-que">
+      <div class="wrap">
+        <span class="eyebrow">Por qué Above Lab</span>
+        <h2 id="por-que" class="reveal">Primero la estrategia. <em>Después la tecnología.</em></h2>
+        <div class="grid dos">
+          <div class="card reveal"><h3>No instalamos bots sueltos</h3><p>Empezamos por el diagnóstico y la estrategia; la IA llega cuando tiene de dónde leer y dónde registrar.</p></div>
+          <div class="card reveal"><h3>Lo vivimos antes de ofrecerlo</h3><p>El método nació en un negocio propio. Hablamos como dueños de negocio, no solo como técnicos.</p></div>
+          <div class="card reveal"><h3>A la medida de tu negocio</h3><p>Sistemas ligeros que sí puedes pagar y que tu equipo sí va a usar.</p></div>
+          <div class="card reveal"><h3>Tecnología y creatividad juntas</h3><p>Lo que montamos por dentro se nota por fuera.</p></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 9. POR QUÉ ABOVE LAB -->
-      <section class="slide g-rojo" aria-label="Por qué Above Lab">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Por qué Above Lab</span>
-          <h2 class="rise" style="--i:1">Primero la estrategia. <em>Después la tecnología.</em></h2>
-          <div class="lab">
-            <div class="lab-item rise" style="--i:2"><h3>No instalamos bots sueltos</h3><p>Empezamos por el diagnóstico y la estrategia; la IA llega cuando tiene de dónde leer y dónde registrar.</p></div>
-            <div class="lab-item rise" style="--i:3"><h3>Lo vivimos antes de ofrecerlo</h3><p>El método nació en un negocio propio. Hablamos como dueños de negocio, no solo como técnicos.</p></div>
-            <div class="lab-item rise" style="--i:4"><h3>A la medida de tu negocio</h3><p>Sistemas ligeros que sí puedes pagar y que tu equipo sí va a usar.</p></div>
-            <div class="lab-item rise" style="--i:5"><h3>Tecnología y creatividad juntas</h3><p>Lo que montamos por dentro se nota por fuera.</p></div>
-          </div>
+    <!-- ===== Cómo se empieza ===== -->
+    <section class="seccion g-claro" aria-labelledby="empezar">
+      <div class="wrap">
+        <span class="eyebrow">Cómo se empieza</span>
+        <h2 id="empezar" class="reveal">De una conversación a un equipo <em>más ordenado y productivo.</em></h2>
+        <div class="pasos tres">
+          <div class="paso reveal"><div><h3>Diagnóstico y estrategia</h3><p>La puerta de entrada. Recibes el mapa de cómo opera hoy tu negocio, los puntos donde tu equipo pierde ventas o tiempo y la estrategia con lo que conviene montar primero.</p></div></div>
+          <div class="paso reveal"><div><h3>Proyecto</h3><p>Ejecutamos el plan junto a tu equipo: sistema, automatizaciones, agentes de IA, página o marca.</p></div></div>
+          <div class="paso reveal"><div><h3>Acompañamiento mensual</h3><p>Seguimos mejorando el sistema y acompañando a tu equipo mes a mes.</p></div></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 10. EL LADO CREATIVO -->
-      <section class="slide g-claro" aria-label="El lado creativo">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">El lado creativo</span>
-          <h2 class="rise" style="--i:1">La tecnología hace que funcione. La creatividad hace que <em>te elijan.</em></h2>
-          <div class="lab">
-            <div class="lab-item rise" style="--i:2"><span class="mono">Estrategia de contenido</span><h3>Qué publicar y para qué</h3><p>Definimos los temas, los formatos y el ritmo de publicación según lo que tu negocio quiere lograr.</p></div>
-            <div class="lab-item rise" style="--i:3"><span class="mono">Plan de marketing</span><h3>Un camino para atraer clientes</h3><p>A quién le hablas, qué le ofreces, por dónde llegas y cómo mides si funciona.</p></div>
-            <div class="lab-item rise" style="--i:4"><span class="mono">Video</span><h3>Contenido que muestra tu negocio</h3><p>Grabación y edición de videos que cuentan lo que haces y por qué comprarte.</p></div>
-            <div class="lab-item rise" style="--i:5"><span class="mono">Concepto de marca</span><h3>Una idea que solo es tuya</h3><p>Partimos de lo que hace distinto a tu negocio y lo convertimos en su sello.</p></div>
-          </div>
+    <!-- ===== Preguntas frecuentes ===== -->
+    <section class="seccion g-crema" id="preguntas" aria-labelledby="faq">
+      <div class="wrap">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2 id="faq" class="reveal">Lo que más nos <em>preguntan.</em></h2>
+        <div class="faq">
+          <details class="reveal">
+            <summary>¿La inteligencia artificial va a reemplazar a mi equipo?</summary>
+            <p>No. La usamos para quitarle a tu equipo las tareas repetitivas, como responder siempre las mismas preguntas o pasar datos de un lado a otro. Así tu gente tiene más tiempo para atender bien, asesorar, vender y crear. Las conversaciones que necesitan a una persona siempre llegan a tu equipo.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Esto sirve para un negocio pequeño?</summary>
+            <p>Sí. Trabajamos con sistemas ligeros, hechos a la medida de cada negocio, que se pueden pagar y que tu equipo sí va a usar. Nuestro método nació en un negocio propio que vende por redes sociales.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Necesito saber de tecnología?</summary>
+            <p>No. Nosotros diseñamos y montamos todo, y capacitamos a tu equipo para usarlo en el día a día.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cuánto cuesta?</summary>
+            <p>Depende de lo que necesite tu negocio. Por eso empezamos con un diagnóstico: después de entender cómo opera tu negocio, te damos una propuesta clara con lo que conviene hacer primero y su valor, antes de empezar.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cuánto tiempo toma?</summary>
+            <p>Depende del proyecto. En el diagnóstico definimos las prioridades y los tiempos de cada etapa, para que sepas qué esperar desde el principio.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Qué pasa cuando termina el proyecto?</summary>
+            <p>Puedes seguir con nuestro acompañamiento mensual: mejoramos el sistema, ajustamos lo que haga falta y acompañamos a tu equipo mes a mes.</p>
+          </details>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 11. CÓMO SE EMPIEZA -->
-      <section class="slide g-rosa" aria-label="Cómo se empieza">
-        <div class="inner">
-          <span class="eyebrow rise" style="--i:0">Cómo se empieza</span>
-          <h2 class="rise" style="--i:1">De una conversación a un equipo <em>más ordenado y productivo.</em></h2>
-          <div class="pasos">
-            <div class="paso rise" style="--i:2"><div><h3>Diagnóstico y estrategia</h3><p>La puerta de entrada. Recibes el mapa de cómo opera hoy tu negocio, los puntos donde tu equipo pierde ventas o tiempo y la estrategia con lo que conviene montar primero.</p></div></div>
-            <div class="paso rise" style="--i:3"><div><h3>Proyecto</h3><p>Ejecutamos el plan junto a tu equipo: sistema, automatizaciones, agentes de IA, página o marca.</p></div></div>
-            <div class="paso rise" style="--i:4"><div><h3>Acompañamiento mensual</h3><p>Seguimos mejorando el sistema y acompañando a tu equipo mes a mes.</p></div></div>
-          </div>
+    <!-- Llamado final -->
+    <section class="cierre" aria-labelledby="cierre-titulo">
+      <div class="blob uno" aria-hidden="true"></div>
+      <div class="blob dos" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="mono">El primer paso</span>
+        <h2 id="cierre-titulo">Empieza por un diagnóstico.</h2>
+        <p>Escríbenos la palabra <span class="palabra">DIAGNÓSTICO</span> y miramos tu negocio con tu equipo.</p>
+        <div class="botones">
+          <a class="btn" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg> Escríbenos por WhatsApp</a>
+          <a class="btn borde" href="/contacto/">Prefiero el formulario</a>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- 12. CIERRE -->
-      <section class="slide bookend b-rosa" aria-label="Cierre">
-        <div class="blob uno" aria-hidden="true"></div>
-        <div class="blob dos" aria-hidden="true"></div>
-        <div class="panel">
-          <span class="mono rise" style="--i:0">El primer paso</span>
-          <h2 class="cierre-title rise" style="--i:1">Empieza por un diagnóstico.</h2>
-          <p class="tagline rise" style="--i:2;max-width:30ch">Escríbenos la palabra <span class="palabra">DIAGNÓSTICO</span> y miramos tu negocio juntos.</p>
-          <a class="wa-btn rise" style="--i:3" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
-            Escríbenos por WhatsApp
-          </a>
-        </div>
-      </section>
+  <!-- ===== Pie de página ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div style="display:grid;gap:12px">
+        <a class="brand" href="/" aria-label="Above Lab, ir al inicio">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="25,38 15,4 46,34" fill="#C8102E"/>
+          <polygon points="75,38 85,4 54,34" fill="#C8102E"/>
+          <polygon points="28,31 24,13 38,31" fill="#E85D9C"/>
+          <polygon points="72,31 76,13 62,31" fill="#E85D9C"/>
+          <circle cx="50" cy="54" r="31" fill="#FF9FCD"/>
+          <ellipse cx="50" cy="62" rx="17" ry="13" fill="#FFF6F0"/>
+          <circle cx="41" cy="57" r="3.4" fill="#2A1015"/>
+          <circle cx="59" cy="57" r="3.4" fill="#2A1015"/>
+          <circle cx="50" cy="65" r="2.6" fill="#2A1015"/>
+          <path d="M 43 70 Q 50 76 57 70" stroke="#2A1015" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+          <span>ABOVE LAB</span>
+        </a>
+        <p>Agencia de inteligencia artificial para negocios. Estrategia, sistemas e IA para que tu equipo rinda más.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="/servicios/">Servicios</a></li>
+          <li><a href="/caso-inizitech/">Caso Inizitech</a></li>
+          <li><a href="/#preguntas">Preguntas frecuentes</a></li>
+          <li><a href="/presentacion/">Ver presentación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener">WhatsApp: 320 629 9941</a></li>
+          <li><a href="/contacto/">Formulario de contacto</a></li>
+          <li><a href="/privacidad/">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <p class="legal">© 2026 Above Lab. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-    </main>
-  </div>
+  <a class="wa-flotante" href="https://wa.me/573206299941?text=DIAGN%C3%93STICO" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
+  </a>
 
-  <!-- ===== Flechas y contador ===== -->
-  <nav class="controls" aria-label="Navegación de la presentación">
-    <button class="navbtn" id="prevBtn" type="button" aria-label="Anterior">
-      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4L6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <span class="counter" id="counter" aria-live="polite">01 / 12</span>
-    <button class="navbtn" id="nextBtn" type="button" aria-label="Siguiente">
-      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </nav>
+  <!-- Ícono de WhatsApp (se dibuja una vez y se reutiliza) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="ico-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></symbol>
+  </svg>
 
-</div>
-
-<!-- Ícono de WhatsApp (se dibuja una vez y se reutiliza) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="ico-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></symbol>
-</svg>
-
-<script>
-/* Mueve la presentación con las flechas, el teclado o deslizando el dedo */
-(function(){
-  var deck = document.getElementById('deck');
-  var slides = Array.prototype.slice.call(deck.children);
-  var total = slides.length;
-  var bar = document.getElementById('bar');
-  var counter = document.getElementById('counter');
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
-  var index = 0;
-
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
-
-  function render(){
-    deck.style.transform = 'translateX(' + (-index * 100) + '%)';
-    counter.textContent = pad(index + 1) + ' / ' + pad(total);
-    bar.style.width = ((index + 1) / total * 100) + '%';
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === total - 1;
-    slides.forEach(function(s, i){
-      var on = i === index;
-      s.classList.toggle('is-active', on);
-      s.inert = !on;
-      if (on) s.scrollTop = 0;
-    });
-  }
-  function go(d){
-    var n = Math.min(total - 1, Math.max(0, index + d));
-    if (n !== index){ index = n; render(); }
-  }
-
-  prevBtn.addEventListener('click', function(){ go(-1); });
-  nextBtn.addEventListener('click', function(){ go(1); });
-  window.addEventListener('keydown', function(e){
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(1);
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(-1);
-  });
-
-  var sx = null, sy = null;
-  deck.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
-  deck.addEventListener('touchend', function(e){
-    if (sx === null) return;
-    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? 1 : -1);
-    sx = sy = null;
-  }, {passive:true});
-
-  render();
-})();
-</script>
+  <script src="/main.js" defer></script>
 </body>
 </html>
